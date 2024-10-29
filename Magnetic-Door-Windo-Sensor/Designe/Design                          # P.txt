@@ -1,0 +1,8 @@
+ Design/                          # Phase 2: System Design
+│   ├── Requirements.md              # High-level requirements (hardware/software)
+│   ├── Context_Model.png            # System context model diagram
+│   ├── Use_Cases/                   # Use case model and descriptions
+│   │   ├── Use_Case_Diagram.png
+│   │   └── Use_Case_Descriptions.md
+│   ├── State_Machine.png            # State machine diagram for control system
+│   └── System_Design_Report.pdf     # Full system design report
