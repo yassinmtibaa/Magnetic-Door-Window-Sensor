@@ -54,17 +54,17 @@ cd magnetic-door-sensor
 
 
 ### Step 4: Testing the System
-.When the door or window is closed, the reed switch will be in a closed state (magnet present), and the system should turn off the buzzer and LED (green).
-.When the door or window is opened, the reed switch will open (magnet moved away), and the system will trigger the buzzer and turn on the LED (red).
+- When the door or window is closed, the reed switch will be in a closed state (magnet present), and the system should turn off the buzzer and LED (green).
+- When the door or window is opened, the reed switch will open (magnet moved away), and the system will trigger the buzzer and turn on the LED (red).
 
 ## Code Explanation
 
 ### Main Components:
 
-. **main.c:** This file contains the main logic for reading the reed switch status and controlling the buzzer and LED.
-. **GPIO Initialization (MX_GPIO_Init):** Configures the GPIO pins for input and output.
-. **Reed Switch Logic:** Checks the status of the reed switch (open or closed) and takes appropriate action (activating the buzzer and LED).
-. **System Clock Configuration:** Ensures the STM32F0 microcontroller operates at the correct clock speed.
+- **main.c:** This file contains the main logic for reading the reed switch status and controlling the buzzer and LED.
+- **GPIO Initialization (MX_GPIO_Init):** Configures the GPIO pins for input and output.
+- **Reed Switch Logic:** Checks the status of the reed switch (open or closed) and takes appropriate action (activating the buzzer and LED).
+- **System Clock Configuration:** Ensures the STM32F0 microcontroller operates at the correct clock speed.
 
 ## Example Code:
 ```bash
@@ -104,12 +104,12 @@ int main(void)
 ## Contributing
 If you would like to contribute to this project, feel free to fork the repository, make changes, and create a pull request.
 
-Steps to Contribute:
-Fork the repository to your GitHub account.
-Clone your fork to your local machine.
-Make changes to the code, documentation, or hardware setup.
-Commit your changes and push them to your fork.
-Open a pull request to merge your changes back into the main repository.
+### Steps to Contribute:
+1. Fork the repository to your GitHub account.
+2. Clone your fork to your local machine.
+3. Make changes to the code, documentation, or hardware setup.
+4. Commit your changes and push them to your fork.
+5. Open a pull request to merge your changes back into the main repository.
 
 
 ## Acknowledgements
