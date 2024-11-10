@@ -45,3 +45,76 @@ Clone the repository to your local machine:
 ```bash
 git clone https://github.com/yassinmtibaa/magnetic-door-sensor.git
 cd magnetic-door-sensor
+```
+###Step 3: Build and Program the STM32F0
+1. Open STM32CubeIDE and load the project.
+2. Build the project by clicking Project > Build Project.
+3. Program the STM32F0 microcontroller via the ST-Link programmer.
+4. Ensure that the reed switch, buzzer, and LED are connected correctly to the STM32F0 pins (PA0, PA1, and PA2).
+
+
+###Step 4: Testing the System
+.When the door or window is closed, the reed switch will be in a closed state (magnet present), and the system should turn off the buzzer and LED (green).
+.When the door or window is opened, the reed switch will open (magnet moved away), and the system will trigger the buzzer and turn on the LED (red).
+
+##Code Explanation
+
+###Main Components:
+
+. **main.c:** This file contains the main logic for reading the reed switch status and controlling the buzzer and LED.
+. **GPIO Initialization (MX_GPIO_Init):** Configures the GPIO pins for input and output.
+. **Reed Switch Logic:** Checks the status of the reed switch (open or closed) and takes appropriate action (activating the buzzer and LED).
+. **System Clock Configuration:** Ensures the STM32F0 microcontroller operates at the correct clock speed.
+
+##Example Code:
+```bash
+#include "main.h"
+#include "stm32f0xx_hal.h"
+
+#define DOOR_SENSOR_PIN GPIO_PIN_0  // Reed Switch connected to PA0
+#define BUZZER_PIN GPIO_PIN_1       // Buzzer connected to PA1
+#define LED_PIN GPIO_PIN_2          // LED connected to PA2
+
+int main(void)
+{
+    HAL_Init();
+    SystemClock_Config();
+    MX_GPIO_Init();
+
+    while (1)
+    {
+        // Check the status of the reed switch (door/window status)
+        if (HAL_GPIO_ReadPin(GPIOA, DOOR_SENSOR_PIN) == GPIO_PIN_RESET)
+        {
+            // Door/window is open, activate buzzer and LED
+            HAL_GPIO_WritePin(GPIOA, BUZZER_PIN, GPIO_PIN_SET);
+            HAL_GPIO_WritePin(GPIOA, LED_PIN, GPIO_PIN_SET);  // Turn on red LED
+        }
+        else
+        {
+            // Door/window is closed, deactivate buzzer and LED
+            HAL_GPIO_WritePin(GPIOA, BUZZER_PIN, GPIO_PIN_RESET);
+            HAL_GPIO_WritePin(GPIOA, LED_PIN, GPIO_PIN_RESET); // Turn off LED
+        }
+
+        HAL_Delay(100);
+    }
+}
+```
+##Contributing
+If you would like to contribute to this project, feel free to fork the repository, make changes, and create a pull request.
+
+Steps to Contribute:
+Fork the repository to your GitHub account.
+Clone your fork to your local machine.
+Make changes to the code, documentation, or hardware setup.
+Commit your changes and push them to your fork.
+Open a pull request to merge your changes back into the main repository.
+License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+##Acknowledgements
+STM32CubeMX and STM32CubeIDE for making development easier with HAL libraries.
+STM32F0 Discovery Board for providing a low-cost and powerful development platform.
+
+
