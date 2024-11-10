@@ -43,5 +43,5 @@ This project implements a simple security system to detect whether a door or win
 Clone the repository to your local machine:
 
 ```bash
-git clone https://github.com/yourusername/magnetic-door-sensor.git
+git clone https://github.com/yassinmtibaa/magnetic-door-sensor.git
 cd magnetic-door-sensor
