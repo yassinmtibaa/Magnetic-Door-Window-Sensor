@@ -9,6 +9,7 @@ This project implements a simple security system to detect whether a door or win
 - **STM32F0** microcontroller for processing sensor input.
 - **Buzzer** for audible alerts when the door/window is opened.
 - **LED** to indicate the current status of the door/window.
+- **LCD** to dsiplay the status of the system.
 - Optional upgrades: Wireless notifications, battery management, and enhanced security features.
 
 ## Components Required
@@ -18,6 +19,7 @@ This project implements a simple security system to detect whether a door or win
 - **STM32F0 Microcontroller**: Processes input from the reed switch and controls the buzzer and LED.
 - **Buzzer**: Provides an audio signal when the door/window is opened.
 - **LED**: Visual indicator for open/closed state of the door/window.
+- **LCD** to dsiplay the status of the system.
 - **Power Supply**: Battery or external source to power the system.
 
 ## System Requirements
@@ -32,9 +34,12 @@ This project implements a simple security system to detect whether a door or win
 
 1. Open **STM32CubeMX** and create a new project for the **STM32F0** microcontroller.
 2. **Configure GPIO pins**:
-   - **PA0** (Reed Switch) as input with pull-up resistor.
-   - **PA1** (Buzzer) as output (push-pull).
-   - **PA2** (LED) as output (push-pull).
+   - **PB5** (Reed Switch) as input with pull-up resistor.
+   - **PB6** (green LED) as output (push-pull).
+   - **PB7** (red LED) as output (push-pull).
+   - **PB15** (Buzzer) as output (push-pull).
+   - **PB10** I2C2-SCL (LCD).
+   - **PB11** I2C2-SDA (LCD).
 3. Set the **system clock** to use the internal HSI oscillator.
 4. **Generate the code** for the STM32F0 using STM32CubeMX, then open the project in **STM32CubeIDE**.
 
@@ -54,8 +59,8 @@ cd magnetic-door-sensor
 
 
 ### Step 4: Testing the System
-- When the door or window is closed, the reed switch will be in a closed state (magnet present), and the system should turn off the buzzer and LED (green).
-- When the door or window is opened, the reed switch will open (magnet moved away), and the system will trigger the buzzer and turn on the LED (red).
+- When the door or window is closed, the reed switch will be in a closed state (magnet present), and the system should turn off the buzzer and LED (green) and print on the display system is on.
+- When the door or window is opened, the reed switch will open (magnet moved away), and the system will trigger the buzzer and turn on the LED (red) and print on the display the system is off .
 
 ## Code Explanation
 
